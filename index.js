@@ -1,4 +1,5 @@
 const functions = require("@google-cloud/functions-framework");
+const dotenv = require("dotenv");
 
 const mailgun = require("mailgun-js");
 const Sequelize = require("sequelize");
@@ -6,6 +7,7 @@ const Sequelize = require("sequelize");
 let API_KEY = "63879c1c184af6eb81dd56e1d5dc4c73-309b0ef4-926300ae";
 let DOMAIN = "mailgun.cloud-cssye.me";
 const mg = mailgun({ apiKey: API_KEY, domain: DOMAIN });
+dotenv.config();
 
 functions.cloudEvent("helloPubSub", async (cloudEvent) => {
   const base64name = cloudEvent.data.message.data;
@@ -45,7 +47,7 @@ functions.cloudEvent("helloPubSub", async (cloudEvent) => {
   const sender_email = "email@mailgun.cloud-cssye.me";
   const receiver_email = jsonData.username;
   const email_subject = "Action Required: Verify Your Email Address";
-  const email_body = `<a href="${newUrl}">Click here to verify</a>`;
+  const email_body = `<p>Click <a href="${newUrl}">here</a> to verify your email.</p>`;
 
   // Call the sendMail function
   try {
