@@ -47,7 +47,7 @@ functions.cloudEvent("helloPubSub", async (cloudEvent) => {
   const sender_email = "email@mailgun.cloud-cssye.me";
   const receiver_email = jsonData.username;
   const email_subject = "Action Required: Verify Your Email Address";
-  const email_body = `<p>Click <a href="${newUrl}">here</a> to verify your email.</p>`;
+  const email_body = `Click on the following link to verify your email address: ${newUrl}`;
 
   // Call the sendMail function
   try {
