@@ -39,7 +39,7 @@ functions.cloudEvent("helloPubSub", async (cloudEvent) => {
     console.log(error);
   }
 
-  const tokenGenerator = "http://cloud-cssye.me:4000/verifyUser?tokenValue=";
+  const tokenGenerator = "https://cloud-cssye.me/verifyUser?tokenValue=";
   const tokenValue = jsonData.tokenGenerated;
   const newUrl = tokenGenerator + tokenValue;
 
