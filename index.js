@@ -5,7 +5,7 @@ const mailgun = require("mailgun-js");
 const Sequelize = require("sequelize");
 
 let API_KEY = process.env.MAIL_API_KEY;
-let DOMAIN = "mailgun.cloud-cssye.me";
+let DOMAIN = process.env.DOMAIN_MAILGUN;
 const mg = mailgun({ apiKey: API_KEY, domain: DOMAIN });
 dotenv.config();
 
