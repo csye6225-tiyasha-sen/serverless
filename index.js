@@ -4,7 +4,7 @@ const dotenv = require("dotenv");
 const mailgun = require("mailgun-js");
 const Sequelize = require("sequelize");
 
-let API_KEY = "63879c1c184af6eb81dd56e1d5dc4c73-309b0ef4-926300ae";
+let API_KEY = process.env.MAIL_API_KEY;
 let DOMAIN = "mailgun.cloud-cssye.me";
 const mg = mailgun({ apiKey: API_KEY, domain: DOMAIN });
 dotenv.config();
@@ -39,7 +39,7 @@ functions.cloudEvent("helloPubSub", async (cloudEvent) => {
     console.log(error);
   }
 
-  const tokenGenerator = "https://cloud-cssye.me/verifyUser?tokenValue=";
+  const tokenGenerator = process.env.TOKEN_GENERATOR;
   const tokenValue = jsonData.tokenGenerated;
   const newUrl = tokenGenerator + tokenValue;
 
